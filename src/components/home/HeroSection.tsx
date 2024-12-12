@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 
 export default function HeroSection() {
   return (
-    <Spotlight className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+    <Spotlight className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:h-[90vh] md:flex justify-center items-center">
       <div className="text-center">
         <h1 className="text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary mb-6 pb-4">
           Jaigaon Public School
@@ -18,7 +18,7 @@ export default function HeroSection() {
             href="/enrollment"
             className="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg font-medium transition-all"
           >
-            Apply Now
+            Enroll Now
           </Link>
           <Link
             href="/about"
