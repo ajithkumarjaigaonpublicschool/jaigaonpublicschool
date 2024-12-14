@@ -3,6 +3,8 @@
 import Link from 'next/link';
 import { Menu } from 'lucide-react';
 import { useState } from 'react';
+import Image from 'next/image';
+import logo from '../../../public/logo-bg.png';
 
 const navigation = [
   { name: 'Home', href: '/' },
@@ -20,21 +22,27 @@ export default function Navbar() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Top">
         <div className="w-full py-6 flex items-center justify-between border-b border-primary lg:border-none">
           <div className="flex items-center">
-            <Link href="/">
-              <span className="text-2xl font-bold text-primary">JPS</span>
+            <Link
+              href="/"
+            >
+              <Image src={logo} alt="Logo"width={60} height={60} className='object-cover' />
             </Link>
+            {/* <Link href="/">
+              <span className="text-2xl font-bold text-primary">JPS</span>
+            </Link> */}
           </div>
-          <div className="hidden lg:flex gap-8">
+          <ul className="hidden lg:flex gap-8">
             {navigation.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className="text-base font-medium text-gray-700 hover:text-primary transition-colors"
-              >
-                {link.name}
-              </Link>
+              <li key={link.name}>
+                <Link
+                  href={link.href}
+                  className="text-base font-medium text-gray-700 hover:text-primary transition-colors"
+                >
+                  {link.name}
+                </Link>
+              </li>
             ))}
-          </div>
+          </ul>
           <div className="lg:hidden">
             <button
               type="button"
@@ -46,17 +54,21 @@ export default function Navbar() {
           </div>
         </div>
         {mobileMenuOpen && (
-          <div className="lg:hidden py-4">
+          <ul className="lg:hidden py-4">
             {navigation.map((link) => (
-              <Link
+              <li
                 key={link.name}
-                href={link.href}
-                className="block py-2 text-base font-medium text-gray-700 hover:text-primary transition-colors"
+                onClick={() => setMobileMenuOpen(prev => !prev)}
               >
-                {link.name}
-              </Link>
+                <Link
+                  href={link.href}
+                  className="block py-2 text-base font-medium text-gray-700 hover:text-primary transition-colors"
+                >
+                  {link.name}
+                </Link>
+              </li>
             ))}
-          </div>
+          </ul>
         )}
       </nav>
     </header>

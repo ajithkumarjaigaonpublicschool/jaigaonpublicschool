@@ -8,7 +8,7 @@ import Address from '@/components/Address';
 const ContactPage: React.FC = () => {
   // Initialize state with type
   return (
-    <div className="container mx-auto px-4 py-8 md:px-32">
+    <div className="container mx-auto px-4 py-8 lg:px-32">
       <h1 className="text-3xl font-bold text-center mb-8">Contact Us</h1>
       
       <div className="grid md:grid-cols-2 gap-8">

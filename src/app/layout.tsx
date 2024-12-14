@@ -17,8 +17,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
+      <html lang="en">
+      <head>
+        <link rel="icon" href="/logo-bg.png" sizes="any" />
+        <meta name="theme-color" content="#ffffff" />
+      </head>
+      <body>
         <Navbar />
         <main>{children}</main>
         <Footer />

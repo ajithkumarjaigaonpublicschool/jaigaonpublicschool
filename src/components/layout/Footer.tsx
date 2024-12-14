@@ -1,15 +1,25 @@
 import { FacebookIcon, GithubIcon, LinkedinIcon, TwitterIcon, YoutubeIcon } from 'lucide-react';
 import Address from '../Address';
+import Link from 'next/link';
+import Image from 'next/image';
+import logo from '../../../public/logo-bg.png';
 
 export default function Footer() {
+  const currentYear = new Date().getFullYear();
   return (
     <footer className="bg-white border-t">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-primary">Jaigaon Public School</h3>
+            <Link
+              href="/"
+            >
+              <Image src={logo} alt="Logo"width={60} height={60} className='object-cover' />
+            </Link>
+
+            {/* <h3 className="text-lg font-semibold text-primary">Jaigaon Public School</h3> */}
             <p className="text-gray-600 text-sm">
-              Nurturing minds, building futures since 1985
+              Nurturing minds, building futures since 2019
             </p>
           </div>
           
@@ -48,7 +58,7 @@ export default function Footer() {
         </div>
         
         <div className="mt-8 pt-8 border-t text-center text-sm text-gray-600">
-          <p>© 2024 Jaigaon Public School. All rights reserved.</p>
+          <p>© {currentYear} Jaigaon Public School. All rights reserved.</p>
         </div>
       </div>
     </footer>
