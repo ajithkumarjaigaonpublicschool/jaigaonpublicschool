@@ -1,76 +1,138 @@
 'use client';
-
 import Link from 'next/link';
-import { Menu } from 'lucide-react';
-import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import React, { useEffect, useState } from 'react';
+import { motion, Variants } from "framer-motion";
 import Image from 'next/image';
+import { Menu } from 'lucide-react';
+
+// Import components
+import Button from '../Button';
+import HoverFillButton from '../HoverFillButton';
+import MobileNavbar from './MobileNavbar';
 import logo from '../../../public/logo-bg.png';
+import { X } from 'lucide-react';
 
 const navigation = [
   { name: 'Home', href: '/' },
   { name: 'About', href: '/about' },
-  { name: 'Academics', href: '/academics' },
+  // { name: 'Academics', href: '/academics' },
   { name: 'Enrollment', href: '/enrollment' },
   { name: 'Contact', href: '/contact' },
 ];
 
-export default function Navbar() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+const Navbar: React.FC = () => {
+  const [scrolled, setScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const router = useRouter();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const offset = window.scrollY;
+      setScrolled(offset > 5);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  const handleNavigation = (link: string) => {
+    router.push(link);
+    setIsMobileMenuOpen(false);
+  };
+
+  const backgroundVariants: Variants = {
+    initial: {
+      backgroundColor: "rgba(255,255,255,0)",
+      opacity: 1
+    },
+    scrolled: {
+      backgroundColor: "rgba(255,255,255,1)"
+    }
+  };
 
   return (
-    <header className="bg-white shadow-sm sticky top-0 left-0 right-0 z-50">
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Top">
-        <div className="w-full py-6 flex items-center justify-between border-b border-primary lg:border-none">
-          <div className="flex items-center">
-            <Link
-              href="/"
-            >
-              <Image src={logo} alt="Logo"width={60} height={60} className='object-cover' />
-            </Link>
-            {/* <Link href="/">
-              <span className="text-2xl font-bold text-primary">JPS</span>
-            </Link> */}
-          </div>
-          <ul className="hidden lg:flex gap-8">
+    <>
+      {/* Main Navbar */}
+      <motion.header
+        variants={backgroundVariants}
+        initial="initial"
+        animate={scrolled ? "scrolled" : "initial"}
+        className={`
+          sticky top-0 left-0 right-0 transition-all duration-75 ease-in-out
+          ${scrolled ? 'bg-white/90 shadow-md' : 'bg-transparent'} 
+          w-full flex justify-between items-center p-4 lg:px-32 z-50
+        `}
+      >
+        {/* Logo */}
+        <Link href="/">
+          <Image
+            src={logo} 
+            alt="Logo" 
+            width={60} 
+            height={60} 
+            className='object-cover' 
+          />
+        </Link>
+
+        {/* Desktop Navigation */}
+        <nav className='hidden lg:block'>
+          <ul className='flex justify-center items-center gap-6'>
             {navigation.map((link) => (
               <li key={link.name}>
                 <Link
                   href={link.href}
-                  className="text-base font-medium text-gray-700 hover:text-primary transition-colors"
+                  className={`
+                    transition-all duration-75 ease-in-out 
+                    font-semibold hover:text-secondary
+                    ${scrolled ? "text-primary" : "text-black"} 
+                    `}
                 >
                   {link.name}
                 </Link>
               </li>
             ))}
           </ul>
-          <div className="lg:hidden">
-            <button
-              type="button"
-              className="text-gray-700"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            >
-              <Menu className="h-6 w-6" />
-            </button>
-          </div>
+        </nav>
+
+        {/* Desktop Buttons */}
+        <div className='hidden lg:flex gap-4'>
+          <HoverFillButton 
+            text="Learn More" 
+            handleClick={() => handleNavigation('/academics')}
+          />
+          <Button 
+            text="Enroll Now" 
+            handleClick={() => handleNavigation('/enrollment')} 
+            type="CTA"
+          />
         </div>
-        {mobileMenuOpen && (
-          <ul className="lg:hidden py-4">
-            {navigation.map((link) => (
-              <li
-                key={link.name}
-                onClick={() => setMobileMenuOpen(prev => !prev)}
-              >
-                <Link
-                  href={link.href}
-                  className="block py-2 text-base font-medium text-gray-700 hover:text-primary transition-colors"
-                >
-                  {link.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        )}
-      </nav>
-    </header>
+
+        {/* Mobile Menu Toggle */}
+        <div className='lg:hidden'>
+          <button 
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className={`
+              z-50 relative text-primary
+              `}
+              // ${scrolled ? 'text-primary' : 'text-white'}
+          >
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+      </motion.header>
+
+      {/* Mobile Navbar */}
+      <MobileNavbar 
+        isOpen={isMobileMenuOpen}
+        onClose={() => setIsMobileMenuOpen(false)}
+        navigation={navigation}
+        handleEnroll={handleNavigation}
+      />
+    </>
   );
-}
+};
+
+export default Navbar;

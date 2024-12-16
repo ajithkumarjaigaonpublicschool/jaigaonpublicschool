@@ -17,6 +17,10 @@ module.exports = {
       colors: {
         primary: 'var(--primary)',
         secondary: 'var(--secondary)',
+        customDarkBlue: {
+          100: "#094F5B"
+        },
+        customBlue: "#042227"
       },
       animation: {
         spotlight: "spotlight 2s ease .75s 1 forwards",

@@ -17,7 +17,7 @@ const ContactPage: React.FC = () => {
           <h2 className="text-2xl font-semibold">Contact Information</h2>
           <Address className='space-y-4' />
           {/* Google Maps Iframe */}
-          <GoogleMap />
+          <GoogleMap className='sm:h-[300px] md:h-[400px]'/>
         </div>
 
         {/* Contact Form */}

@@ -6,8 +6,9 @@ import img1 from "../../../public/Hero1.jpg"
 import img2 from "../../../public/Hero2.jpg"
 import img3 from "../../../public/cards4.jpg"
 import { useRouter } from "next/navigation";
+import HeroContent from './HeroContent';
 
-export function ImagesSliderDemo() {
+export function ImagesSliderDemo({type}: {type:string}) {
   const router = useRouter()
   const images = [
     img1.src,
@@ -19,7 +20,10 @@ export function ImagesSliderDemo() {
   ];
  
   return (
-    <ImagesSlider className="h-[40rem] md:h-[90vh]" images={images}>
+    <ImagesSlider className={`${type==="home" ? "relative h-[150vh] md:h-[108vh]":"h-[40rem] md:h-screen"}`} images={images}>
+      {type=="home" ?
+        <HeroContent />
+        : 
       <motion.div
         initial={{
           opacity: 0,
@@ -32,17 +36,18 @@ export function ImagesSliderDemo() {
         transition={{
           duration: 0.6,
         }}
-        className="z-50 flex flex-col justify-center items-center"
+        className={`z-50 flex flex-col justify-center items-center`}
       >
         <motion.p className="font-bold text-xl md:text-6xl text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 py-4">
-          {/* The hero section slideshow <br /> nobody asked for */}
-          About Us
-        </motion.p>
-        <button className="px-4 py-2 backdrop-blur-sm border bg-emerald-300/10 border-emerald-500/20 text-white mx-auto text-center rounded-full relative mt-4" onClick={() => router.push('/enrollment')}>
-          <span>Enroll now →</span>
-          <div className="absolute inset-x-0  h-px -bottom-px bg-gradient-to-r w-3/4 mx-auto from-transparent via-emerald-500 to-transparent" />
-        </button>
-      </motion.div>
+              {/* The hero section slideshow <br /> nobody asked for */}
+              About us
+            </motion.p>
+            <button className="px-4 py-2 backdrop-blur-sm border bg-emerald-300/10 border-emerald-500/20 text-white mx-auto text-center rounded-full relative mt-4" onClick={() => router.push('/enrollment')}>
+              <span>Enroll now →</span>
+              <div className="absolute inset-x-0  h-px -bottom-px bg-gradient-to-r w-3/4 mx-auto from-transparent via-emerald-500 to-transparent" />
+            </button>
+        </motion.div>
+      }
     </ImagesSlider>
   );
 }
