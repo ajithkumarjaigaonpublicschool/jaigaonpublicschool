@@ -14,10 +14,26 @@ type IconType = keyof typeof iconType;
 const SocialLinks = ({ type }: { type: IconType }) => {
   return (
     <ul className='flex gap-4'>
-      <li className={type=="footer" ? " bg-white rounded-full p-2" :""}><FontAwesomeIcon icon={faFacebookF} className={iconType[type]}/></li> 
-      <li className={type=="footer" ? " bg-white rounded-full p-2" :""}><FontAwesomeIcon icon={faTwitter} className={iconType[type]}/></li>   
-      <li className={type=="footer" ? " bg-white rounded-full p-2" :""}><FontAwesomeIcon icon={faYoutube} className={iconType[type]}/></li>    
-      <li className={type=="footer" ? " bg-white rounded-full p-2" :""}><FontAwesomeIcon icon={faInstagram} className={iconType[type]}/></li>    
+      <li className={type=="footer" ? " bg-white rounded-full p-2" :""}>
+        <a href='https://www.facebook.com/profile.php?id=100063838244783' className='hover:cursor-pointer'>
+          <FontAwesomeIcon icon={faFacebookF} className={iconType[type]}/>
+        </a>
+      </li> 
+      {/* <li className={type=="footer" ? " bg-white rounded-full p-2" :""}>
+        <a href='' className='hover:cursor-pointer'>
+            <FontAwesomeIcon icon={faTwitter} className={iconType[type]}/>
+          </a>
+        </li>    */}
+      <li className={type=="footer" ? " bg-white rounded-full p-2" :""}>
+        <a href='https://www.youtube.com/@JaigaonPublicSchool' className='hover:cursor-pointer'>
+          <FontAwesomeIcon icon={faYoutube} className={iconType[type]}/>
+        </a>
+      </li>    
+      <li className={type=="footer" ? " bg-white rounded-full p-2" :""}>
+        <a href='https://www.instagram.com/jaigaonpublicschool?igsh=dTdseGt2Z2l5bTBn' className='hover:cursor-pointer'>
+          <FontAwesomeIcon icon={faInstagram} className={iconType[type]}/>
+        </a>
+      </li>    
     </ul>
   )
 }

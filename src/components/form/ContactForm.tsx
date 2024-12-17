@@ -58,7 +58,7 @@ const ContactForm = () => {
 
 
   return (
-        <div className="bg-white p-6 rounded-lg shadow-md">
+        <div className="bg-white p-6 flex flex-col justify-around rounded-lg shadow-md">
           <h2 className="text-2xl font-semibold mb-4">Send Us a Message</h2>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
@@ -70,7 +70,7 @@ const ContactForm = () => {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
               />
             </div>
             <div>
@@ -82,18 +82,19 @@ const ContactForm = () => {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
               />
             </div>
             <div>
-              <label htmlFor="phone" className="block mb-2">Phone (Optional)</label>
+              <label htmlFor="phone" className="block mb-2">Phone</label>
               <input
                 type="tel"
                 id="phone"
                 name="phone"
                 value={formData.phone}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                required
+                className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
               />
             </div>
             <div>
@@ -105,7 +106,7 @@ const ContactForm = () => {
                 onChange={handleChange}
                 required
                 rows={4}
-                className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
               />
             </div>
             <button

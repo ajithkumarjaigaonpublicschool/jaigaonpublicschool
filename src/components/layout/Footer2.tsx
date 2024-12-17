@@ -52,7 +52,7 @@ const Footer = () => {
       </div>
     </div>
     <div className='w-full h-16 flex justify-center items-center bg-customBlue'>
-      <p className='text-white'>&copy; {getCurrentYear()} <Link href='/'>{companyName}</Link>. All Rights Reserved.</p>
+      <p className='text-white'>&copy; {getCurrentYear()} <Link href='/' className='hover:text-secondary'>{companyName}</Link>. All Rights Reserved.</p>
     </div>
   </footer>
   )
