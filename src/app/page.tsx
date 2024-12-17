@@ -17,7 +17,7 @@ export default function Home() {
       <FeaturesSection />
       <BoardMeeting />
       <div className='w-full h-screen flex flex-col justify-center items-center space-y-8 px-4 pt-8 md:px-32 md:pt-24'>
-        <h2 className='capitalize text-3xl font-bold'>our school located at the heart of the city</h2>
+        <h2 className='capitalize text-3xl font-bold'>our school is situated in the heart of the city</h2>
         <GoogleMap className='w-full h-full'/>
       </div>
       <NewsSection />

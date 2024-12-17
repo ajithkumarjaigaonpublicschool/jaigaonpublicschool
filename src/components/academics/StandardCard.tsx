@@ -19,7 +19,7 @@ export function StandardCard({ grade, description, features, index }: StandardCa
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className="w-full"
     >
-      <div className="p-6 h-full hover:shadow-lg transition-shadow duration-300 bg-white dark:bg-gray-800">
+      <div className="p-6 h-full hover:shadow-lg transition-shadow duration-300 bg-white">
         <div className="space-y-4">
           <div className="flex items-center space-x-3">
             <div className="p-2 bg-primary/10 rounded-lg">
