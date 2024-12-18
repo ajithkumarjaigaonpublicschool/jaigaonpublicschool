@@ -8,8 +8,11 @@ import Footer from '@/components/layout/Footer2';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Jaigaon Public School',
-  description: 'Nurturing minds, building futures in West Bengal',
+  title: {
+    default: "Jaigaon Public School",
+    template: "%s - Jaigaon Public School"
+  },
+  description: 'Nurturing minds, building futures in West Bengal since 2019',
 };
 
 export default function RootLayout({

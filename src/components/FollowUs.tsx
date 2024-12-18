@@ -5,13 +5,13 @@ import followUsImg from '../../public/cards5.jpg';
 
 const FollowUs = () => {
   return (
-    <section className='relative w-full h-screen flex items-center justify-center'>
+    <section className='relative w-full h-[60vh] md:h-screen flex items-center justify-center'>
       {/* Background Image */}
       <div className='absolute inset-0 z-0'>
         <Image 
           src={followUsImg} 
           alt="Follow Us on Social Media" 
-          layout="fill" 
+          fill
           objectFit="cover" 
           quality={90}
           // className='opacity-50'

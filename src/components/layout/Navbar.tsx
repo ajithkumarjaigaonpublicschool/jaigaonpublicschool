@@ -73,6 +73,7 @@ const Navbar: React.FC = () => {
             alt="Logo" 
             width={60} 
             height={60} 
+            priority
             className='object-cover' 
           />
         </Link>

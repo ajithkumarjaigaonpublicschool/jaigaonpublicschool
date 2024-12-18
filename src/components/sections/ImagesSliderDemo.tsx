@@ -20,7 +20,7 @@ export function ImagesSliderDemo({type}: {type:string}) {
   ];
  
   return (
-    <ImagesSlider className={`${type==="home" ? "relative h-[150vh] md:h-[108vh]":"h-[40rem] md:h-screen"}`} images={images}>
+    <ImagesSlider className={`${type==="home" ? "relative h-[122vh] md:h-[108vh]":"h-[40rem] md:h-screen"}`} images={images}>
       {type=="home" ?
         <HeroContent />
         : 

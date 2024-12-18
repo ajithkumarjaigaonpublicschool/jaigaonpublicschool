@@ -42,6 +42,7 @@ const QuickLink = ({ icon: Icon, text, href, bgColor }) => {
 };
 
 const HeroContent = () => {
+  const enrollmentButton = true;
   return (
     <div className="absolute bottom-0">
       {/* Content */}
@@ -52,11 +53,29 @@ const HeroContent = () => {
           variants={stagger}
           className="text-center"
         >
+          { enrollmentButton &&
+            <motion.div 
+              variants={fadeIn}
+              className="mb-4"
+            >
+              <a className="bg-secondary py-3 px-4 text-black hover:text-white rounded-md" href="https://docs.google.com/forms/d/e/1FAIpQLSfRDqgPAC8zCw0ko6tuCvEXb_vATBkou7ZzLTlifqECw5YuDg/viewform" target="_blank">
+                Start Application Process
+              </a>
+            </motion.div>
+          }
+
           <motion.h1 
             variants={fadeIn}
             className="text-5xl md:text-7xl font-bold text-white mb-6"
           >
+            <ul className="flex flex-col md:hidden">
+              <li>inspire</li>
+              <li>connect</li>
+              <li>ignite</li>
+            </ul>
+            <span className="hidden md:block">
             inspire • connect • ignite
+            </span>
           </motion.h1>
 
           <motion.p 
@@ -69,14 +88,14 @@ const HeroContent = () => {
           {/* Quick Links */}
           <motion.div 
             variants={stagger}
-            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 max-w-[85%] mx-auto"
+            className="grid grid-cols-2 lg:grid-cols-4 max-w-[85%] mx-auto"
           >
-            <QuickLink 
+            {/* <QuickLink 
               icon={NotebookText}
               text="Enrollment"
               href="/enrollment"
               bgColor="bg-emerald-200"
-            />
+            /> */}
             <QuickLink 
               icon={School}
               text="About"
@@ -92,7 +111,7 @@ const HeroContent = () => {
             <QuickLink 
               icon={UserPlus}
               text="admission"
-              href="/admission"
+              href="/enrollment"
               bgColor="bg-purple-200"
             />
             <QuickLink 
@@ -101,12 +120,12 @@ const HeroContent = () => {
               href="/contact"
               bgColor="bg-orange-200"
             />
-            <QuickLink 
+            {/* <QuickLink 
               icon={Volume2}
               text="Announcements"
               href="/announcements"
               bgColor="bg-blue-200"
-            />
+            /> */}
           </motion.div>
         </motion.div>
       </div>
