@@ -1,7 +1,7 @@
 "use client"
 import { motion } from "framer-motion";
 import Image from 'next/image';
-import cover from "../../../public/cards7.jpg";
+import cover from "../../../public/cards7.webp";
 
 const AboutSection: React.FC = () => {
   return (

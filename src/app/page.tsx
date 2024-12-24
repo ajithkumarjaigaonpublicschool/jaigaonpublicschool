@@ -1,11 +1,8 @@
-import HeroSection from '@/components/home/HeroSection';
 import NewsSection from '@/components/home/NewsSection';
 import FeaturesSection from '@/components/home/FeaturesSection';
-import TestimonialsSection from '@/components/home/TestimonialsSection';
 import { ImagesSliderDemo } from '@/components/sections/ImagesSliderDemo';
 import FollowUs from '@/components/FollowUs';
 import GoogleMap from '@/components/sections/GoogleMap';
-import BoardMeeting from '@/components/home/BoardMeeting';
 import AboutSection from '@/components/home/AboutSection';
 
 export default function Home() {

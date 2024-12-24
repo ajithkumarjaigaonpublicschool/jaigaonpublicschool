@@ -1,7 +1,7 @@
 import React from 'react'
 import SocialLinks from '../components/sections/SocialLinks'
 import Image from 'next/image';
-import followUsImg from '../../public/cards5.jpg';
+import followUsImg from '../../public/cards5.webp';
 
 const FollowUs = () => {
   return (

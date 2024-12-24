@@ -3,8 +3,8 @@
 import { motion } from "framer-motion";
 
 import { CheckCircle2, Calendar, Users, Clock } from "lucide-react";
-import img1 from '../../../public/admission1.png';
-import img2 from '../../../public/admission2.png';
+import img1 from '../../../public/admission1.webp';
+import img2 from '../../../public/admission2.webp';
 import Image from "next/image";
 import Metadata from "@/components/Metadata";
 

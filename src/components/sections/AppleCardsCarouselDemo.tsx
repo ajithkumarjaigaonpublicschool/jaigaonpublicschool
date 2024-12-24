@@ -2,12 +2,12 @@
 import Image from "next/image";
 import React from "react";
 import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
-import img1 from '../../../public/cards2.jpg';
-import img2 from '../../../public/cards4.jpg';
-import img3 from '../../../public/cards5.jpg';
-import img4 from '../../../public/cards6.jpg';
-import img5 from '../../../public/cards7.jpg';
-import img6 from '../../../public/cards9.jpg';
+import img1 from '../../../public/cards2.webp';
+import img2 from '../../../public/cards4.webp';
+import img3 from '../../../public/cards5.webp';
+import img4 from '../../../public/cards6.webp';
+import img5 from '../../../public/cards7.webp';
+import img6 from '../../../public/cards9.webp';
 
 
 export function AppleCardsCarouselDemo() {

@@ -10,7 +10,7 @@ import { Menu } from 'lucide-react';
 import Button from '../Button';
 import HoverFillButton from '../HoverFillButton';
 import MobileNavbar from './MobileNavbar';
-import logo from '../../../public/logo-bg.png';
+import logo from '../../../public/logo-bg.webp';
 import { X } from 'lucide-react';
 
 const navigation = [

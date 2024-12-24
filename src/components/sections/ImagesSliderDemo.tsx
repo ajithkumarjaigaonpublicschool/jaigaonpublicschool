@@ -2,9 +2,9 @@
 import { motion } from "framer-motion";
 import React from "react";
 import { ImagesSlider } from "../ui/images-slider";
-import img1 from "../../../public/Hero1.jpg"
-import img2 from "../../../public/Hero2.jpg"
-import img3 from "../../../public/cards4.jpg"
+import img1 from "../../../public/Hero1.webp"
+import img2 from "../../../public/Hero2.webp"
+import img3 from "../../../public/cards4.webp"
 import { useRouter } from "next/navigation";
 import HeroContent from './HeroContent';
 

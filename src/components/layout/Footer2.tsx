@@ -3,7 +3,7 @@ import SocialLinks from '../sections/SocialLinks'
 import GoogleMap from '../sections/GoogleMap'
 import Link from 'next/link'
 import Image from 'next/image'
-import logo from '../../../public/logo-bg.png';
+import logo from '../../../public/logo-bg.webp';
 import Address from '../Address'
 
 const Footer = () => {
