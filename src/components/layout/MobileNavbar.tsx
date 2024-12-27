@@ -44,7 +44,7 @@ const MobileNavbar: React.FC<MobileNavbarProps> = ({
       initial="closed"
       className={`
         fixed top-0 left-0 right-0 bottom-0 
-        bg-white/95 lg:hidden z-40 
+        bg-white lg:hidden z-40 
         flex flex-col
       `}
     >

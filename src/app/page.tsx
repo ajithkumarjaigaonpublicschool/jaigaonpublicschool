@@ -13,9 +13,11 @@ export default function Home() {
       {/* <HeroSection /> */}
       <FeaturesSection />
       {/* <BoardMeeting /> */}
-      <div className='w-full h-1/2 flex flex-col justify-center items-center space-y-8 px-4 pt-8 md:h-screen md:px-32 md:pt-24'>
-        <h2 className='capitalize text-xl font-bold w-3/4 md:w-full text-center md:text-3xl'>our school is situated in the heart of the city</h2>
-        <GoogleMap className='w-full h-full'/>
+      <div className="w-full min-h-screen flex flex-col justify-center items-center space-y-8 px-4 pt-8 md:px-28 md:pt-18 lg:px-32 lg:pt-24">
+        <h2 className="capitalize text-xl font-bold w-3/4 md:w-full text-center md:text-3xl">
+          our school is situated in the heart of the city
+        </h2>
+        <GoogleMap />
       </div>
       <NewsSection />
       <FollowUs />
