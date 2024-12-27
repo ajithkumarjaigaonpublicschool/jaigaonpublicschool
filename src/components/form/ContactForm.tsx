@@ -11,12 +11,13 @@ interface ContactFormData {
 }
 
 const ContactForm = () => {
-    const [formData, setFormData] = useState<ContactFormData>({
+  const [formData, setFormData] = useState<ContactFormData>({
     name: '',
     email: '',
     phone: '',
     message: ''
   });
+  const [submitStatus, setSubmitStatus] = useState("Send Message");
 
   // Typed event handlers
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -29,9 +30,9 @@ const ContactForm = () => {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
+    setSubmitStatus("Sending...");
     try {
-      const response = await fetch('/api/submit-contact', {
+      const response = await fetch('/api/send-email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -47,12 +48,16 @@ const ContactForm = () => {
           phone: '',
           message: ''
         });
+      setSubmitStatus("Success");
       } else {
         alert('Failed to send message. Please try again.');
+        setSubmitStatus("Please retry!");
       }
     } catch (error) {
       console.error('Error submitting form:', error);
       alert('An error occurred. Please try again.');
+    } finally {
+        setSubmitStatus("Send Message");
     }
   };
 
@@ -113,7 +118,7 @@ const ContactForm = () => {
               type="submit"
               className="w-full bg-primary hover:bg-primary/90 text-white py-2 rounded-lg flex justify-center items-center gap-4"
             >
-              Send Message
+              {submitStatus}
               <Send className="w-4 h-4" />
             </button>
             
